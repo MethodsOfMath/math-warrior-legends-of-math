@@ -114,3 +114,5 @@ var masterEnemies = [
 
 addToRoster("Math Warrior");
     
+levelSelect();
+    
