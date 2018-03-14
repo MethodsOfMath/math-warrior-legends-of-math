@@ -1,7 +1,5 @@
 var response = 0;
 
-
-
 function printQ(x) {
   document.getElementById("questionArea").innerHTML = x;
 }
@@ -14,6 +12,7 @@ function displayNumberButtons() {
   }
   output += "<button onclick='submitAttack(response)'>ENTER</button>";
   document.getElementById("buttonArea").innerHTML = output;
+  document.getElementById("numberDisplay").innerHTML = 0;
 }
 
 function numButton(n) {
@@ -54,7 +53,7 @@ var masterRoster = [
       } // end subtract object
     ] // end abilities array
   } // end Math Warrior object
-] // end masterRoster array
+]; // end masterRoster array
 
 var masterEnemies = [
   {
@@ -68,9 +67,8 @@ var masterEnemies = [
       {
         name: "ooze",
         damage: function() {
-          
+          target.hp -= (Math.floor(Math.random()*2)) + 1)
         }
       }
     ]
-
-]
+];
