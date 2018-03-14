@@ -1,12 +1,19 @@
 var response = 0;
+var roster = [];
+var answer = 0;
+
+var levels = [
+  {
+    name: "TEST LEVEL"
+  }
+  ];
 
 function printQ(x) {
   document.getElementById("questionArea").innerHTML = x;
 }
 
-function displayNumberButtons() {
-  output = 
-  output = "";
+function displayNumberButtons() { 
+  let output = "";
   for (let i = 0; i <= 9; i++) { 
     output += "<button onclick='numButton(" + i + ")'>" + i + "</button>";
   }
@@ -28,6 +35,38 @@ function submitAttack(r) {
   } else {
     printQ("Miss!");
   }
+}
+
+function addToRoster(charName) {
+  for (let i = 0; i < roster.length; i++) {
+    if (roster[i].name === charName) {
+      return;
+    }
+  }
+  for (let i = 0; i < masterRoster.length; i++) {
+     if (masterRoster[i].name === "charName") {
+      roster.push(masterRoster[i]);
+      return;
+    }
+  }
+  
+function levelSelect() {
+  let output = "";
+  for (let i = 0; i < levels.length; i++) {
+    output += "<button onclick='startLevel(" + i + ")'>" + levels[i].name + "</button>";
+  }
+  printQ("Select Level");
+  document.getElementById("buttonArea").innerHTML = output;
+}
+  
+startLevel(lvl) {
+  let output = "";
+  printQ("Select Characters:")
+  for (let i = 0; i < roster.length; i++) {
+    output += "<button onclick='addToCurrentRoster(" + i + ")><img src='" + roster[i].icon + "' width=32 height=32></button>" 
+  }
+  document.getElementById("buttonArea").innerHTML = output;
+  
 }
 
 var masterRoster = [
@@ -72,3 +111,6 @@ var masterEnemies = [
       }
     ]
 ];
+
+addToRoster("Math Warrior");
+    
