@@ -49,6 +49,7 @@ function addToRoster(charName) {
       return;
     }
   }
+}
   
 function levelSelect() {
   let output = "";
@@ -59,11 +60,11 @@ function levelSelect() {
   document.getElementById("buttonArea").innerHTML = output;
 }
   
-startLevel(lvl) {
+function startLevel(lvl) {
   let output = "";
-  printQ("Select Characters:")
+  printQ("Select Characters:");
   for (let i = 0; i < roster.length; i++) {
-    output += "<button onclick='addToCurrentRoster(" + i + ")><img src='" + roster[i].icon + "' width=32 height=32></button>" 
+    output += "<button onclick='addToCurrentRoster(" + i + ")><img src='" + roster[i].icon + "' width=32 height=32></button>";
   }
   document.getElementById("buttonArea").innerHTML = output;
   
@@ -106,13 +107,13 @@ var masterEnemies = [
       {
         name: "ooze",
         damage: function() {
-          target.hp -= (Math.floor(Math.random()*2)) + 1)
+          target.hp -= (Math.floor(Math.random()*2) + 1);
         }
       }
     ]
+  } 
 ];
 
 addToRoster("Math Warrior");
     
 levelSelect();
-    
